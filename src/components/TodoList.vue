@@ -6,14 +6,16 @@
   <!-- v-on:click === @click -->
   <button v-on:click="addTodo">Add Todo</button>
   <div id="content">
-    <ul>
+    <ul class="todolist">
       <!-- v-bind:key === :key  -->
       <li v-bind:class="todolist-item" v-for="(todo,index) in todoList" v-bind:key="index">
         <input v-bind:id="`todo-${index}`" type="checkbox" v-model="todo.checked">
-        <label v-bind:for="`todo-${index}`">{{todo.name}}</label>
-
+        <label v-bind:class="{'todolist-item-checked':todo.checked}"
+               v-bind:for="`todo-${index}`" >{{todo.name}}</label>
+        <button @click="removeTodo(index)">X</button>
       </li>
     </ul>
+    {{todoList}}
   </div>
 
 </div>
@@ -26,13 +28,16 @@ export default {
     return {
       placeholder: 'Please add something',
       todoMessage: '',
-      todoList: [{ name: 'Learn Vue.js', checked: true }]
+      todoList: [{ name: 'Learn Vue.js', checked: false }]
     }
   },
   methods: {
     addTodo() {
       this.todoList.push({ name: this.todoMessage })
       this.todoMessage = ''
+    },
+    removeTodo(index) {
+      this.todoList.splice(index, 1)
     }
   }
 }
@@ -44,7 +49,7 @@ export default {
   .todolist {
     &-item {
       &-checked {
-        text-decoration: todo;
+        text-decoration: line-through;
       }
     }
   }
