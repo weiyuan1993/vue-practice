@@ -52,7 +52,7 @@ export default {
       titleName: `Vue.js TodoList 練習`,
       placeholder: 'Please add something',
       todoMessage: '',
-      todoList: [{ name: 'Learn Vue.js', checked: false }],
+      todoList: [{ name: 'Learn Vue.js', checked: false }, { name: 'Eat breakfast', checked: true }],
       maxLimit: 3
     }
   },
@@ -84,6 +84,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 #TodoList {
+  // margin-top: 10px;
   border: 1px solid black;
 
   width: 600px;
@@ -113,12 +114,12 @@ export default {
       display: flex;
       width: 100%;
       > input {
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
       }
       > button {
-        width: 30px;
-        flex: 1;
+        width: 50px;
+        // flex: 1;
       }
       > label {
         flex: 8;
