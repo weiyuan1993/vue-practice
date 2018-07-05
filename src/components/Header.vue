@@ -1,7 +1,10 @@
 <template>
   <div id="header">
-      <h1>{{titleName}}</h1>
-      <div>更換標題(子元件Header 傳向父元件 TodoList)<input type="text" v-model="msg" @change="inputChange" @keyup="inputChange"></div>
+      <h2>{{titleName}}</h2>
+      <div>
+        Change header(Header.vue $emit to TodoList.vue)
+        <input type="text" v-model="msg" @change="inputChange" @keyup="inputChange">
+        </div>
   </div>
 </template>
 <script>
@@ -27,4 +30,7 @@ export default {
 }
 </script>
 <style scoped>
+#header {
+  border-bottom: 1px solid black;
+}
 </style>
