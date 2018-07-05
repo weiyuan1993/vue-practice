@@ -53,7 +53,7 @@ export default {
       placeholder: 'Please add something',
       todoMessage: '',
       todoList: [{ name: 'Learn Vue.js', checked: false }, { name: 'Eat breakfast', checked: true }],
-      maxLimit: 3
+      maxLimit: 10
     }
   },
   computed: {
@@ -131,7 +131,7 @@ export default {
         text-decoration: line-through;
       }
       &--notshow {
-        display: none;
+        display: none !important;
       }
     }
   }
